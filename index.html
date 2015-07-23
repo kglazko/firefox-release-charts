@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
+  <title>Firefox D3</title>
+  <script src="statusChart.js"></script>
+  <script src="bugzillaStatus.js"></script>
+  <script src="Chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ </head>
+ <body>
+
+ <h1>SUP</h1>
+ <br>
+ <canvas id="myChart" width="400" height="400" class="chart"></canvas>
+<script type="text/javascript">
+      var affected;
+      var unaffected;
+      var fixed;
+      var verified;
+      var wontfix;
+      var question;
+      var blank;
+      var version = "42";
+
+
+      (function() {
+
+          function getStatus (function) {
+          affected = getAffected(version);
+          unaffected = getUnaffected(version);
+          fixed = getFixed(version);
+          verified = getVerified(version);
+          wontfix = getWontfix(version);
+          question= getQuestion(version);
+          blank = getBlank(version);
+          doAlert();
+          }
+
+          function doAlert () {
+            alert(affected);
+          }
+
+          getStatus(doAlert());
+          drawChart(affected,7,2,3,4,5,9);
+
+
+      })();
+  </script>
+ </body>
+</html>
