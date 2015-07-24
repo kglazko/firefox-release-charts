@@ -11,39 +11,64 @@
  </head>
  <body>
 
- <h1>SUP</h1>
+ <h2>Tracking 42+ By Status</h2>
  <br>
- <canvas id="myChart" width="400" height="400" class="chart"></canvas>
+ <canvas id="myChart" width="200" height="200" class="chart"></canvas>
+<ul style="list-style-type: none;">
+<li><label style="background-color:#F7464A; color:white"id="affected"></label></li>
+<li><label style="background-color:#46BFBD; color:white"id="unaffected"></label></li>
+<li><label style="background-color:#FDB45C; color:white"id="fixed"></label></li>
+<li><label style="background-color:#0000FF; color:white"id="verified"></label></li>
+<li><label style="background-color:#FF00FF; color:white"id="wontfix"></label></li>
+<li><label style="background-color:#000000; color:white"id="question"></label></li>
+<li><label style="background-color:#C0C0C0; color:white"id="blank"></label></li>
+</ul>
 <script type="text/javascript">
-      var affected;
-      var unaffected;
-      var fixed;
-      var verified;
-      var wontfix;
-      var question;
-      var blank;
+ affected=null;
+   unaffected=null;
+fixed=null;
+verified=null;
+wontfix=null;
+question=null;
+blank=null;
       var version = "42";
+          function isReady () {
 
+if(
+affected != null &&
+unaffected != null &&
+fixed != null &&
+verified != null &&
+wontfix != null &&
+ blank != null) {
+  return true;
+alert("arlo");
+}
+
+else {
+  return false;
+  alert("narlo");
+}
+}
 
       (function() {
 
-          function getStatus (function) {
-          affected = getAffected(version);
-          unaffected = getUnaffected(version);
-          fixed = getFixed(version);
-          verified = getVerified(version);
-          wontfix = getWontfix(version);
-          question= getQuestion(version);
-          blank = getBlank(version);
-          doAlert();
+          function getStatus () {
+          getAffected(version);
+          getUnaffected(version);
+          getFixed(version);
+          getVerified(version);
+          getWontfix(version);
+          getQuestion(version);
+          getBlank(version);
           }
 
-          function doAlert () {
-            alert(affected);
-          }
+          getStatus();
 
-          getStatus(doAlert());
-          drawChart(affected,7,2,3,4,5,9);
+function makeChart(){
+          drawChart(7,7,2,3,4,5,9);
+          alert(affected);
+}
 
 
       })();
