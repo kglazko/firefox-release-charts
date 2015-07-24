@@ -21,7 +21,7 @@
  <body>
 <div class = "row">
 <div class = "col-md-4">
- <h3>Tracking 42+ By Status</h3>
+ <h3 id="pieHeader"></h3>
  <br>
  <canvas id="myChart" width="200" height="200" class="chart"></canvas>
 <ul style="list-style-type: none;">
@@ -35,7 +35,7 @@
 </div>
 
 <div class="col-md-4">
-<h3>Tracking Categorized by Keyword</h3>
+<h3 id="barHeader"></h3>
 <canvas id="myBarChart" width="300" height="200" class="chart"></canvas>
 </div>
 <script type="text/javascript">
@@ -50,7 +50,8 @@ numCrash=null;
 numTopCrash=null;
 numRegression=null;
 
-var version = "42";
+//CHANGE ME TO CHANGE VERSIONS :)
+var version = "41";
           function isReady () {
 
 if(

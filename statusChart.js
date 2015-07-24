@@ -1,4 +1,5 @@
 function drawChart(affected,unaffected,fixed,verified,wontfix,blank) {
+    document.getElementById('pieHeader').innerHTML = "Tracking " + version + "+ By Status";
     var ctx = document.getElementById("myChart").getContext("2d");
     var data = [
     {
@@ -53,6 +54,7 @@ function drawLabel(affected,unaffected,fixed,verified,wontfix,blank) {
 }
 
 function drawBarChart(numCrash, numTopCrash, numRegression) {
+    document.getElementById('barHeader').innerHTML = "Tracking " + version + "+ Categorized by Keyword";
     var ctx2 = document.getElementById("myBarChart").getContext("2d");
     var data = {
     labels: ["Crash", "TopCrash", "Regression"],
