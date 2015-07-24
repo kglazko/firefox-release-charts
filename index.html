@@ -20,7 +20,7 @@
  </head>
  <body>
 <div class = "row">
-<div class = "col-md-4">
+<div class = "col-md-4 col-md-offset-2">
  <h3 id="pieHeader"></h3>
  <br>
  <canvas id="myChart" width="200" height="200" class="chart"></canvas>
@@ -30,6 +30,7 @@
 <li><label style="background-color:#FDB45C; color:white"id="fixed"></label></li>
 <li><label style="background-color:#0000FF; color:white"id="verified"></label></li>
 <li><label style="background-color:#FF00FF; color:white"id="wontfix"></label></li>
+<li><label style="background-color:#336633; color:white"id="question"></label></li>
 <li><label style="background-color:#C0C0C0; color:white"id="blank"></label></li>
 </ul>
 </div>
@@ -40,7 +41,7 @@
 </div>
 <script type="text/javascript">
  affected=null;
-   unaffected=null;
+unaffected=null;
 fixed=null;
 verified=null;
 wontfix=null;
@@ -51,7 +52,7 @@ numTopCrash=null;
 numRegression=null;
 
 //CHANGE ME TO CHANGE VERSIONS :)
-var version = "41";
+var version = "42";
           function isReady () {
 
 if(
@@ -59,8 +60,8 @@ affected != null &&
 unaffected != null &&
 fixed != null &&
 verified != null &&
-wontfix != null &&
- blank != null) {
+wontfix != null && 
+question !=null && blank != null) {
   return true;
 alert("arlo");
 }

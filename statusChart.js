@@ -1,42 +1,50 @@
-function drawChart(affected,unaffected,fixed,verified,wontfix,blank) {
+function drawChart(affected,unaffected,fixed,verified,wontfix, question,blank) {
     document.getElementById('pieHeader').innerHTML = "Tracking " + version + "+ By Status";
     var ctx = document.getElementById("myChart").getContext("2d");
     var data = [
     {
         value: affected,
         color:"#F7464A",
-        highlight: "#FF5A5E",
+        highlight: "#F7464A",
         label: "affected"
     },
     {
         value: unaffected,
         color: "#46BFBD",
-        highlight: "#5AD3D1",
+        highlight: "#46BFBD",
         label: "unaffected"
     },
     {
         value: fixed,
         color: "#FDB45C",
-        highlight: "#FFC870",
+        highlight: "#FDB45C",
         label: "Fixed"
     },
     {
 
         value: verified,
         color: "#0000FF",
-        highlight: "#FFC870",
+        highlight: "#0000FF",
         label: "Verified"
     },
       {
         value: wontfix,
         color: "#FF00FF",
-        highlight: "#FFC870",
+        highlight: "#FF00FF",
         label: "Wontfix"
     },
+
+    {
+        value: question,
+        color: "#336633",
+        highlight: "#336633",
+        label: "?"
+    },
+
         {
         value: blank,
         color: "#C0C0C0",
-        highlight: "#FFC870",
+        highlight: "#C0C0C0",
         label: "---"
     }
 ];
@@ -44,12 +52,13 @@ function drawChart(affected,unaffected,fixed,verified,wontfix,blank) {
     var myPieChart = new Chart(ctx).Pie(data, {legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"});
 }
 
-function drawLabel(affected,unaffected,fixed,verified,wontfix,blank) {
+function drawLabel(affected,unaffected,fixed,verified,wontfix,question,blank) {
     document.getElementById('affected').innerHTML = "Affected: " + affected;
     document.getElementById('unaffected').innerHTML = "Unaffected: " + unaffected;
     document.getElementById('fixed').innerHTML = "Fixed: " + fixed;
     document.getElementById('verified').innerHTML = "Verified: " + verified;
     document.getElementById('wontfix').innerHTML = "Wontfix: " + wontfix;
+    document.getElementById('question').innerHTML = "?: " + question;
     document.getElementById('blank').innerHTML = "---: " + blank;
 }
 
