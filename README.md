@@ -1,2 +1,2 @@
 # firefoxD3
-Let's use D3 to make cool graphs for Firefox
+Not actually using D3 anymore, but ChartJS. Cool thing though, let's make cool charts for FF release!
