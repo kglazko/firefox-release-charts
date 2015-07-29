@@ -83,3 +83,8 @@ var myBarChart = new Chart(ctx2).Bar(data,  {
     barShowStroke: true
 });
     }
+
+function drawRegressionBarChart(numCore, numP) {
+
+}
+
