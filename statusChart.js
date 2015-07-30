@@ -84,7 +84,25 @@ var myBarChart = new Chart(ctx2).Bar(data,  {
 });
     }
 
-function drawRegressionBarChart(numCore, numP) {
+function drawRegBarChart(webCore, webJS, webLayout, prodCore, prodFF, prodFE, prodLayout, prodToolkit) {
+    document.getElementById('regBarHeader').innerHTML = "Tracking " + version + "+ Regressions By Category";
+    var ctx3 = document.getElementById("myRegBarChart").getContext("2d");
+    var data = {
+    labels: ["Web:Core", "Web:JS", "Web:Layout", "Prod:Core", "Prod:Firefox", "Prod:Fennec", "Prod:Layout", "Prod:Toolkit"],
+    datasets: [
+        {
+            label: "Regressions in Tracking 42",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [webCore, webJS, webLayout, prodCore, prodFF, prodFE, prodLayout, prodToolkit]
+        }
+    ]
+};
 
+var myRegBarChart = new Chart(ctx3).Bar(data,  {
+    barShowStroke: true
+});
 }
 

@@ -12,13 +12,16 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="getTrackedCategory.js"></script>
+ <script src="getTrackedCategory.js"></script>
+  <script src="getRegressionCategory.js"></script>
   <script src="statusChart.js"></script>
   <script src="bugzillaStatus.js"></script>
   <script src="Chart.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  </head>
  <body>
+
+
 <div class = "row">
 <div class = "col-md-4 col-md-offset-2">
  <h3 id="pieHeader"></h3>
@@ -40,6 +43,17 @@
 <canvas id="myBarChart" width="300" height="200" class="chart"></canvas>
 </div>
 </div>
+
+
+<div class = "row">
+<div class = "col-md-4 col-md-offset-2">
+<h3 id="regBarHeader"></h3>
+<br>
+<canvas id="myRegBarChart" width="300" height="200" class="chart"></canvas>
+</div>
+</div>
+
+
 <script type="text/javascript">
  affected=null;
 unaffected=null;
@@ -64,6 +78,8 @@ prodToolkitReg = null;
 
 //CHANGE ME TO CHANGE VERSIONS :)
 var version = "42";
+
+
           function isReady () {
 
 if(
@@ -74,16 +90,25 @@ verified != null &&
 wontfix != null && 
 question !=null && blank != null) {
   return true;
-alert("arlo");
 }
 
 else {
   return false;
-  alert("narlo");
 }
 }
 
-          function isReadyforBar () {
+          function isReadyforReg () {
+
+if(webDOMReg != null&&webJSReg != null&&webLayoutReg!= null && prodToolkitReg!=null && prodLoopReg!=null && prodFennecReg!=null &&prodFirefoxReg &&prodCoreReg!=null) {
+  return true;
+}
+
+else {
+  return false;
+}
+}
+
+function isReadyforBar() {
 
 if(numCrash != null&&numTopCrash != null&&numRegression != null) {
   return true;
@@ -116,10 +141,18 @@ else {
 
           getCategories();
 
-function makeChart(){
-          drawChart(7,7,2,3,4,5,9);
-          alert(affected);
-}
+          function getRegressions () {
+            getWebCoreRegressions(version);
+            getWebJSRegressions(version);
+            getWebLayoutRegressions(version);
+            getProdCoreRegressions(version);
+            getProdFirefoxRegressions(version);
+            getProdFennecRegressions(version);
+            getProdLoopRegressions(version);
+            getProdToolkitRegressions(version);
+          }
+
+          getRegressions();
 
 
       })();
